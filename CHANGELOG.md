@@ -3,6 +3,7 @@
 ## 1.1.0 (2021-02-01)
 #### News
 - Add new StorageType: `.files`
+- Add method `contain`
 - Add tests
 #### Changes
 - StorageKey type changed from `String` to `CustomStringConvertible`

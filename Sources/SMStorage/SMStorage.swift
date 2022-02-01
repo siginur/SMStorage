@@ -129,6 +129,22 @@ open class SMStorage<Key: StorageKey> {
         }
     }
     
+    public func contain(key: Key) -> Bool {
+        switch self.type {
+        case .userDefaults:
+            return userDefaults.object(forKey: key.key.description) != nil
+        case .memory:
+            return memory.keys.contains(key)
+        case .files:
+            guard let url = fileUrl(withKey: key) else {
+                return false
+            }
+            return fileManager.fileExists(atPath: url.path)
+        case .unknown:
+            return false
+        }
+    }
+    
     // MARK: - Help methods
     
     func fileUrl(withKey key: Key) -> URL? {
