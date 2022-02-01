@@ -10,8 +10,14 @@ import SMStorage
 
 class FilesTests: XCTestCase {
     
-    static let rootPath = FileManager.default.temporaryDirectory
-    
+    static let rootPath: URL = {
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            return FileManager.default.temporaryDirectory
+        } else {
+            return URL(fileURLWithPath: NSTemporaryDirectory())
+        }
+    }()
+        
     override class func setUp() {
         print("Root path:", rootPath)
     }
