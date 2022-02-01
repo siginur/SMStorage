@@ -16,4 +16,7 @@ public enum StorageType {
     
     /// UserDefaults instance
     case userDefaults
+    
+    /// Files stored on disk
+    case files
 }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-public protocol StorageKey {
-    var key: String { get }
+public protocol StorageKey: Hashable {
+    associatedtype KeyType: CustomStringConvertible
+    var key: KeyType { get }
 }
 
 extension String: StorageKey {
@@ -17,4 +18,8 @@ extension String: StorageKey {
 
 extension Int: StorageKey {
     public var key: String { "\(self)" }
+}
+
+extension URL: StorageKey {
+    public var key: String { "\(self.path)" }
 }
