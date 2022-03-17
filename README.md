@@ -22,7 +22,7 @@ import PackageDescription
 let package = Package(
     name: "YOUR_PROJECT_NAME",
     dependencies: [
-        .package(url: "https://github.com/siginur/SMStorage.git", from: "1.1.0"),
+        .package(url: "https://github.com/siginur/SMStorage.git", from: "1.2.0"),
     ]
 )
 ```
@@ -50,7 +50,6 @@ let files = SMStorage.files()
 enum Key: String, StorageKey {
 	case firstName
 	case lastName
-	var key: String { rawValue }
 }
 let memory = SMStorage<Key>.memory()
 memory[.firstName] = "Alexey"
