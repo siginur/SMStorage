@@ -1,8 +1,12 @@
 # Change Log
 
 #### [Unreleased](https://github.com/siginur/SMStorage/tree/HEAD)
-[Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.0...HEAD)
-- Update README and CHANGELOG
+[Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.1...HEAD)
+
+## [1.2.1](https://github.com/siginur/SMStorage/tree/v1.2.1) (2022-03-17)
+[Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.0...v1.2.1)
+#### Fixes
+- Make RawRepresentable extension public
 
 ## [1.2.0](https://github.com/siginur/SMStorage/tree/v1.2.0) (2022-03-17)
 [Full changelog](https://github.com/siginur/SMStorage/compare/v1.1.0...v1.2.0)

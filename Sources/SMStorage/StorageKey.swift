@@ -25,5 +25,5 @@ extension URL: StorageKey {
 }
 
 extension RawRepresentable {
-    var key: RawValue { rawValue }
+    public var key: RawValue { rawValue }
 }
