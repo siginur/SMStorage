@@ -2,6 +2,7 @@
 
 #### [Unreleased](https://github.com/siginur/SMStorage/tree/HEAD)
 [Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.1...HEAD)
+- Add support for iOS 8
 
 ## [1.2.1](https://github.com/siginur/SMStorage/tree/v1.2.1) (2022-03-17)
 [Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.0...v1.2.1)
