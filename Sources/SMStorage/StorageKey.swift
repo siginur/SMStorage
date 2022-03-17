@@ -23,3 +23,7 @@ extension Int: StorageKey {
 extension URL: StorageKey {
     public var key: String { "\(self.path)" }
 }
+
+extension RawRepresentable {
+    var key: RawValue { rawValue }
+}
