@@ -103,7 +103,7 @@ fileprivate extension OSStatus {
         guard self != errSecSuccess else { return nil }
         
         let message: String
-        if #available(iOS 11.3, *) {
+        if #available(iOS 11.3, macOS 10.13, tvOS 11.3, watchOS 4.3, *) {
             message = SecCopyErrorMessageString(self, nil) as String? ?? "Unknown error"
         } else {
             message = "No error description"
