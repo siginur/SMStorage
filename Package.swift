@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "SMStorage",
     platforms: [
-        .iOS(.v8),
+        .iOS(.v9),
         .macOS(.v10_10),
         .macCatalyst(.v13),
         .tvOS(.v9),

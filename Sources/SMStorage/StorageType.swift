@@ -19,4 +19,8 @@ public enum StorageType {
     
     /// Files stored on disk
     case files
+    
+    /// Data stored in system keychain
+    @available(iOS 11.0, *)
+    case keychain
 }

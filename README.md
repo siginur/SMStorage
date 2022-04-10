@@ -1,11 +1,11 @@
 # SMStorage
 
-A description of this package.
+Simple to use storage manager that allows you to access your data with enum keys.
 
 
 ## Requirements
 
-- iOS 8.0+ | macOS 10.10+ | tvOS 9.0+ | watchOS 2.0+
+- iOS 9.0+ | macOS 10.10+ | tvOS 9.0+ | watchOS 2.0+
 
 
 

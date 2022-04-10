@@ -67,6 +67,11 @@ open class SMStorage<Key: StorageKey> {
         return SMStorage<Key>(type: .files, rootPath: nil)
     }
     
+    @available(iOS 11.0, *)
+    public static func keychain() -> SMStorage<Key> {
+        return SMStorage<Key>(type: .keychain)
+    }
+
     // MARK: - Subscripts
     
     public final subscript(_ key: Key) -> Any? {
@@ -83,6 +88,17 @@ open class SMStorage<Key: StorageKey> {
                 return try? Data(contentsOf: url)
             case .unknown:
                 return nil
+            case .keychain:
+                guard #available(iOS 11.0, *) else {
+                    return nil
+                }
+                if let data = try? KeychainAccess.get(byKey: key.key.description) as? Data {
+                    return try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [
+                        NSNumber.self, NSString.self, NSData.self,
+                        NSDate.self, NSArray.self, NSDictionary.self
+                    ], from: data)
+                }
+                return nil
             }
         }
         set {
@@ -94,6 +110,15 @@ open class SMStorage<Key: StorageKey> {
             case .files:
                 if let url = fileUrl(withKey: key), let newValue = newValue as? Data {
                     try? newValue.write(to: url)
+                }
+            case .keychain:
+                guard #available(iOS 11.0, *) else {
+                    return
+                }
+                if let newValue = newValue {
+                    if let data = try? NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false) {
+                        try? KeychainAccess.set(data as CFTypeRef, forKey: key.key.description)
+                    }
                 }
             case .unknown:
                 break
@@ -124,6 +149,8 @@ open class SMStorage<Key: StorageKey> {
                 return
             }
             try? fileManager.removeItem(at: url)
+        case .keychain:
+            try? KeychainAccess.delete(byKey: key.key.description)
         case .unknown:
             break
         }
@@ -140,6 +167,8 @@ open class SMStorage<Key: StorageKey> {
                 return false
             }
             return fileManager.fileExists(atPath: url.path)
+        case .keychain:
+            return KeychainAccess.contains(key: key.key.description)
         case .unknown:
             return false
         }
@@ -168,6 +197,11 @@ public extension SMStorage {
     
     static func files(inRootPath rootPath: URL) -> SMStorage<Key> where Key == String {
         return SMStorage<Key>(type: .files, rootPath: rootPath)
+    }
+    
+    @available(iOS 11.0, *)
+    static func keychain() -> SMStorage<Key> where Key == String {
+        return SMStorage<Key>(type: .keychain)
     }
     
 }
