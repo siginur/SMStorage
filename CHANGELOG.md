@@ -1,7 +1,11 @@
 # Change Log
 
-#### [Unreleased](https://github.com/siginur/SMStorage/tree/HEAD)
-[Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.1...HEAD)
+## [Unreleased](https://github.com/siginur/SMStorage/tree/HEAD)
+[Full changelog](https://github.com/siginur/SMStorage/compare/v1.3.0...HEAD)
+
+## [1.3.0](https://github.com/siginur/SMStorage/tree/v1.3.0) (2022-04-22)
+[Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.1...v1.3.0)
+#### News
 - Add new StorageType: `.keychainn`
 - Add DataPolicy configuration for `files` and `keychain` storage types
 - Add get/set methods with error throwing when something went wrong
