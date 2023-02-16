@@ -1,7 +1,12 @@
 # Change Log
 
 ## [Unreleased](https://github.com/siginur/SMStorage/tree/HEAD)
-[Full changelog](https://github.com/siginur/SMStorage/compare/v1.3.0...HEAD)
+[Full changelog](https://github.com/siginur/SMStorage/compare/v1.3.1...HEAD)
+
+## [1.3.1](https://github.com/siginur/SMStorage/tree/v1.3.1) (2023-02-16)
+[Full changelog](https://github.com/siginur/SMStorage/compare/v1.3.0...v1.3.1)
+#### Fixes
+- Fix recursion error when string value is set
 
 ## [1.3.0](https://github.com/siginur/SMStorage/tree/v1.3.0) (2022-04-22)
 [Full changelog](https://github.com/siginur/SMStorage/compare/v1.2.1...v1.3.0)

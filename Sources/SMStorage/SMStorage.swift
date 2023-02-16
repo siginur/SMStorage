@@ -184,14 +184,14 @@ open class SMStorage<Key: StorageKey> {
                 case .files, .keychain:
                     try set(data, forKey: key)
                 case .userDefaults, .memory, .unknown:
-                    try set(value, forKey: key)
+                    try set(value as Any, forKey: key)
                 }
             } catch {
-                try set(value, forKey: key)
+                try set(value as Any, forKey: key)
             }
         }
         else {
-            try set(value, forKey: key)
+            try set(value as Any, forKey: key)
         }
     }
     
